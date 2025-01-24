@@ -15,6 +15,23 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 
 
+const thumbnails = document.querySelectorAll('.project-img'); // Select all project images
+
+thumbnails.forEach(thumbnail => {
+  const video = thumbnail.querySelector('.hover-video');
+
+  thumbnail.addEventListener('mouseenter', () => {
+    video.style.display = 'block';
+    video.play();
+  });
+
+  thumbnail.addEventListener('mouseleave', () => {
+    video.pause();
+    video.currentTime = 0;
+    video.style.display = 'none';
+  });
+});
+
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");

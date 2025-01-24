@@ -28,6 +28,49 @@
     hsl(240, 1%, 25%) 3%, 
     hsl(0, 0%, 19%) 97%
   );
+
+.project-img {
+  position: relative;
+  overflow: hidden;
+  width: 100%; 
+  height: 200px; 
+  border-radius: 16px; 
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.project-img .static-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out; 
+  opacity: 1; 
+}
+
+.project-img:hover .static-img {
+  opacity: 0; 
+}
+
+.project-img .hover-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none; 
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out; 
+}
+
+.project-img:hover .hover-video {
+  display: block; 
+  opacity: 1; 
+}
+
   --bg-gradient-jet: linear-gradient(
     to bottom right, 
     hsla(240, 1%, 18%, 0.251) 0%, 
@@ -1002,12 +1045,15 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent;
+  background: transparent; /* No black layer */
   z-index: 1;
   transition: var(--transition-1);
 }
 
-.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
+.project-item > a:hover .project-img::before {
+  background: transparent; /* No black layer */
+}
+
 
 .project-item-icon-box {
   --scale: 0.8;
